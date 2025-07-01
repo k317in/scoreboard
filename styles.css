@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.scoreboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.scoreboard {
+    display: grid;
+    grid-template-areas: 
+        "team1 period team2"
+        "team1 shot-clock team2"
+        "score1 . score2"
+        "fouls1 main-clock fouls2";
+    gap: 20px;
+    text-align: center;
+    font-size: 2rem;
+    width: 90%;
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
+.team {
+    border: 8px solid #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.team { grid-area: team1; }
+.score { grid-area: score1; }
+.main-clock { grid-area: main-clock;}
+.period { grid-area: period; }
+.fouls { grid-area: fouls1; }
+.team2 { grid-area: team2; }
+.score2 { grid-area: score2; }
+.fouls2 { grid-area: fouls2; }
+
+.main-clock, .shot-clock {
+    font-size: 8rem;
+}
+
+.shot-clock {
+    color: #ff007f; /* Pinkish color for the shot clock */
+    font-size: 4rem;
+}
+
+.fouls {
+    font-size: 4rem;
+}
+
+.fouls-score, .period-num {
+    font-size: 3rem;
+}
+
+.score, .score2 {
+    font-size: 8rem;
+    width: 3ch; /* Width of 2 characters + some padding */
+    display: inline-block;
+    text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1366px) {
+    .scoreboard {
+        grid-template-areas: 
+            "team1 period team2"
+            "team1 shot-clock team2"
+            "score1 main-clock score2"
+            "fouls1 fouls2 fouls2";
+    }
+    
+    .main-clock, .shot-clock {
+        font-size: 3rem;
+    }
+    
+    .score, .score2 {
+        font-size: 6rem;
+    }
+    
+    .fouls-score, .period-num {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+     .scoreboard {
+        grid-template-areas: 
+            "team1 period team2"
+            "team1 shot-clock team2"
+            "score1 main-clock score2"
+            "fouls1 fouls2 fouls2";
+    }
+    
+    .team, .period, .fouls, .main-clock, .shot-clock {
+        padding: 10px;
+    }
+    
+    .main-clock, .shot-clock {
+        font-size: 2.5rem;
+    }
+    
+    .score, .score2 {
+        font-size: 5rem;
+    }
+    
+    .fouls-score, .period-num {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scoreboard {
+        grid-template-areas: 
+            "team1 team2"
+            "score1 score2"
+            "period period"
+            "shot-clock shot-clock"
+            "main-clock main-clock"
+            "fouls1 fouls2";
+        gap: 10px;
+    }
+    
+    .team, .period, .fouls, .main-clock, .shot-clock {
+        padding: 5px;
+    }
+    
+    .main-clock, .shot-clock {
+        font-size: 2rem;
+    }
+    
+    .score, .score2 {
+        font-size: 4rem;
+    }
+    
+    .fouls-score, .period-num {
+        font-size: 1rem;
+    }
+}
